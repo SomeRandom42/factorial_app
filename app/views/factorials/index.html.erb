@@ -1,0 +1,33 @@
+<h1>Factorial List out!</h1>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% else %>
+      <div class="error"><%= flash[:error] %></div>
+  <% end %>
+  
+  
+
+
+<%= simple_form_for @factorial do |f| %>
+  <%= f.input :number %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<table>
+    <tr>
+        <th>Number</th>
+        <th>Factorial of the Number</th>
+        
+    </tr>
+    
+    
+        <% @factorials.each do |factorial| %>
+         <tr>
+          <td><%=  factorial.number %></td>
+          <td><%=  factorial.result %></td>
+        </tr>
+        <% end %>
+  
+</table>
